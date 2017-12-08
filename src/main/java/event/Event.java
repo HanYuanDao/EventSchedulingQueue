@@ -124,5 +124,8 @@ public abstract class Event implements Comparable<Event>, Runnable {
                 0 : -1;
     }
 
-
+    @Override
+    public String toString() {
+        return this.getClass().getName() + ". Data : " + data.toString();
+    }
 }

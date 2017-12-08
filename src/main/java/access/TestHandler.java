@@ -1,11 +1,14 @@
 package access;
 
-import event.MakeExcelEvent;
-import handler.LoadDataFromExcelHandler;
-import handler.MakeExcelHandler;
+import entity.GetAddrList;
+import entity.GetPDFAddr;
+import event.GetAddrListEvent;
+import event.GetPDFAddrEvent;
+import handler.GetAddrListHandler;
+import handler.GetPDFAddrHandler;
+import scheduler.SchedulerPriorityBlockingQueue;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Date;
 
 /**
  * Desciption:
@@ -16,29 +19,17 @@ import java.util.HashMap;
 public class TestHandler {
 
     public static void main(String[] myArgs) {
-        /*LoadDataFromExcelHandler a = LoadDataFromExcelHandler.getInstance();
-        ArrayList<HashMap> result = a.loadValue();
+//        GetAddrList getAddr = new GetAddrList("http://www.moh.gov.cn/zhuz/s9499/wsbz_2.shtml");
+//        GetAddrListEvent getAddrListEvent = new GetAddrListEvent(new Date(), GetAddrListHandler.getInstance(), getAddr, new SchedulerPriorityBlockingQueue());
+//        GetAddrListHandler getAddrListHandler = (GetAddrListHandler) GetAddrListHandler.getInstance();
+//        getAddrListHandler.handle(getAddrListEvent);
 
-        MakeExcelHandler makeExcelHandler = MakeExcelHandler.getInstance();
-        MakeExcelEvent makeExcelEvent = new MakeExcelEvent(null, null, result, null);
-        makeExcelHandler.handle(makeExcelEvent);*/
 
-//        int lineNum = 0;
-//        for (HashMap step : result) {
-//            System.out.printf("%4d~", lineNum++);
-//            for (int i = 0; i < 19; i++) {
-//                System.out.printf("%22s|", step.get(i));
-//            }
-//            System.out.printf("\n");
-//        }
+        GetPDFAddr getPdfAddr = new GetPDFAddr("http://www.moh.gov.cn/zhuz/s9491/wsbz.shtml",
+                "http://www.moh.gov.cn/zhuz/s9499/201412/d169bcb7fb674c89999ada218d2f40cb.shtml");
+        GetPDFAddrEvent getPDFAddrEvent = new GetPDFAddrEvent(new Date(), GetAddrListHandler.getInstance(), getPdfAddr, new SchedulerPriorityBlockingQueue());
+        GetPDFAddrHandler getPDFAddrHandler = (GetPDFAddrHandler) GetPDFAddrHandler.getInstance();
+        getPDFAddrHandler.handle(getPDFAddrEvent);
 
-        /*String a = "第一个市第二个市";
-        String b = MakeExcelHandler.cutOutString(a, "市", "市");
-        System.out.println(b);*/
-
-        ArrayList<String> a = null;
-        for (String step : a) {
-            System.out.println(step);
-        }
     }
 }

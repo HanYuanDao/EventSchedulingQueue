@@ -1,5 +1,9 @@
 package http;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.apache.log4j.Logger;
 import resource.HttpServerResource;
 import org.apache.commons.lang.StringUtils;
 
@@ -17,6 +21,17 @@ import java.net.URLConnection;
  * © Copyright 2013-2017, Node Supply Chain Management.
  */
 public class HttpClient {
+    private static final Logger logger = Logger.getLogger(HttpClient.class);
+
+    private static WebClient webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER);
+
+    static {
+        webClient.getOptions().setCssEnabled(false);//忽略Css
+        webClient.getOptions().setJavaScriptEnabled(true);//忽略JavaScript
+        webClient.getOptions().setThrowExceptionOnScriptError(false);
+        webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
+        webClient.getOptions().setPrintContentOnFailingStatusCode(false);
+    }
 
     /**
      * Send a POST request
@@ -69,6 +84,27 @@ public class HttpClient {
             in.close();
         }
         return result.toString();
+    }
+
+    /**
+     * Send a POST request
+     *
+     * @param  url
+     *
+     * @throws  IOException
+     *
+     * @author JasonHan
+     * @creation 2017:02:07 23:05:07
+     */
+    public static String accessUrl(String url) throws IOException {
+        try {
+            HtmlPage htmlPage = (HtmlPage)webClient.getPage(url);
+            return htmlPage.asXml();
+        } catch (Exception e) {
+            System.out.println("");
+            return null;
+        }
+
     }
 
 }

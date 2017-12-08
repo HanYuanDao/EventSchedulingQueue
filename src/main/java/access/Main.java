@@ -2,7 +2,6 @@ package access;
 
 import event.Event;
 import event.LoadFilePathEvent;
-import handler.LoadFilePathHandler;
 import scheduler.EventThreadPool;
 import scheduler.SchedulerPriorityBlockingQueue;
 
@@ -44,8 +43,8 @@ public class Main {
          * 插入第一个（批）事件到事件队列中
          */
         //TODO 这里根据不同项目的需求写入不同的事件
-        LoadFilePathEvent loadFilePathEvent = new LoadFilePathEvent(new Date(), LoadFilePathHandler.getInstance(), null, eventQueue);
-        eventQueue.insertEvent(loadFilePathEvent);
+//        LoadFilePathEvent loadFilePathEvent = new LoadFilePathEvent(new Date(), LoadFilePathHandler.getInstance(), null, eventQueue);
+//        eventQueue.insertEvent(loadFilePathEvent);
     }
 
     public static void main(String[] myArgs) {
@@ -75,11 +74,11 @@ public class Main {
                     eventQueue.removeEvent();
                 }
             }
-            try {
-                Thread.sleep(SLEEP_TIME);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Thread.sleep(SLEEP_TIME);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }
