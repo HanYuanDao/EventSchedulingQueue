@@ -2,8 +2,8 @@ package handler;
 
 import event.Event;
 import event.LoadDataFromExcelEvent;
-import javaBean.ExcelStruct;
-import javaBean.FileStruct;
+import entity.ExcelStruct;
+import entity.FileStruct;
 import resource.FileResource;
 import scheduler.SchedulerPriorityBlockingQueue;
 

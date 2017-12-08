@@ -1,6 +1,6 @@
 package resource;
 
-import javaBean.FileStruct;
+import entity.FileStruct;
 import org.apache.commons.lang.StringUtils;
 import tool.StringHelper;
 

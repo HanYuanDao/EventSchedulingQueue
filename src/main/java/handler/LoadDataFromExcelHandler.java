@@ -2,7 +2,7 @@ package handler;
 
 import event.Event;
 import event.MakeExcelEvent;
-import javaBean.ExcelStruct;
+import entity.ExcelStruct;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;

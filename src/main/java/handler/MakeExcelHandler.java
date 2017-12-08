@@ -1,8 +1,8 @@
 package handler;
 
 import event.Event;
-import javaBean.ExcelStruct;
-import javaBean.Pty;
+import entity.ExcelStruct;
+import entity.Pty;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
