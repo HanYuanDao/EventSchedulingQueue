@@ -26,7 +26,7 @@ public class TestHandler {
 
 
         GetPDFAddr getPdfAddr = new GetPDFAddr("http://www.moh.gov.cn/zhuz/s9491/wsbz.shtml",
-                "http://www.moh.gov.cn/zhuz/s9499/201412/d169bcb7fb674c89999ada218d2f40cb.shtml");
+                "http://www.moh.gov.cn/zhuz/s9499/../../zhuz/s9499/201708/9a546568347e4d9e9cd1888b5cefde08.shtml ");
         GetPDFAddrEvent getPDFAddrEvent = new GetPDFAddrEvent(new Date(), GetAddrListHandler.getInstance(), getPdfAddr, new SchedulerPriorityBlockingQueue());
         GetPDFAddrHandler getPDFAddrHandler = (GetPDFAddrHandler) GetPDFAddrHandler.getInstance();
         getPDFAddrHandler.handle(getPDFAddrEvent);
