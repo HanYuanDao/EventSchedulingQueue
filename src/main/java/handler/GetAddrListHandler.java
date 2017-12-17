@@ -40,7 +40,7 @@ public class GetAddrListHandler extends Handler {
     }
 
     @Override
-    public int handle(Event event) {
+    public int handle(Event event) {//
         GetAddrListEvent getAddrListEvent = (GetAddrListEvent)event;
         GetAddrList getAddrList = (GetAddrList)getAddrListEvent.getData();
 
